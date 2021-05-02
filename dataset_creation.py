@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-all_dir=os.listdir("C:/Users/Euelpis/Desktop/agroknow/downloads")
+all_dir=os.listdir("downloads")
 dataset=pd.read_excel(all_dir[0], header=1)
 
 for i in range(1,len(all_dir)):
@@ -9,7 +9,7 @@ for i in range(1,len(all_dir)):
     frames=[dataset, new_file]
     dataset=pd.concat(frames)
 
-#dataset.to_csv("C:/Users/Euelpis/Desktop/agroknow/uncleaned_dataset.txt", index=False)
+dataset.to_csv("C:/Users/Euelpis/Desktop/agroknow/uncleaned_dataset.txt", index=False)
 
 
 #removed files named: 
