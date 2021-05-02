@@ -5,7 +5,7 @@ from sklearn.utils import shuffle
 import pickle
 
 #read dataset
-data=pd.read_csv("C:/Users/Euelpis/Desktop/agroknow/ready_for_ml.txt")
+data=pd.read_csv("ready_for_ml.txt")
 
 #shuffle
 data = shuffle(data)
@@ -26,7 +26,7 @@ accuracy=accuracy_score(y, predictions)
 print('accuracy: ', 100*accuracy, "%")
 
 #store model
-pickle.dump(clf, open('C:/Users/Euelpis/Desktop/agroknow/final_model.sav', 'wb'))
+pickle.dump(clf, open('final_model.sav', 'wb'))
 
 #load stored model
 #stored_model = pickle.load(open('C:/Users/Euelpis/Desktop/agroknow/final_model.sav', 'rb'))
