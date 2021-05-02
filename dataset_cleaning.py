@@ -11,7 +11,7 @@ def text_to_vector(text):
     return words
 
 #load dataset
-df=pd.read_csv("C:/Users/Euelpis/Desktop/agroknow/uncleaned_dataset.txt", sep=",")
+df=pd.read_csv("uncleaned_dataset.txt", sep=",")
 
 ################# violations/CLASS #####################
 violations=df['CONTENTS OF VIOLATION']
@@ -157,31 +157,5 @@ complete={'violation':groups,
           'day':day}    
 
 dataset=pd.DataFrame(complete)
-#dataset.to_csv("C:/Users/Euelpis/Desktop/agroknow/ready_for_ml.txt", index=False)
+#dataset.to_csv("ready_for_ml.txt", index=False)
 
-'''
-#useful functions
-def get_cosine(vec1, vec2):
-    #find similarity between to sentences
-    #formula used found below:
-    #https://en.wikipedia.org/wiki/Cosine_similarity
-    intersection = set(vec1.keys()) & set(vec2.keys())
-    numerator = sum([vec1[x] * vec2[x] for x in intersection])
-
-    sum1 = sum([vec1[x] ** 2 for x in list(vec1.keys())])
-    sum2 = sum([vec2[x] ** 2 for x in list(vec2.keys())])
-    denominator = math.sqrt(sum1) * math.sqrt(sum2)
-
-    if not denominator:
-        return 0.0
-    else:
-        return float(numerator) / denominator
-
-def text_to_vector(text):
-    words = re.compile(r"\w+").findall(text)
-    words=[word for word in words if not word.isnumeric()]
-    words=[word.lower() for word in words]
-    return Counter(words)
-
-#e.g.: get_cosine(text_to_vector(violations[1]), text_to_vector(violations[2]))
-'''
